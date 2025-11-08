@@ -7,20 +7,40 @@
 	"name": "remote-mcp-server-authless",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-03-10",
-	"compatibility_flags": ["nodejs_compat"],
-	"migrations": [
-		{
-			"new_sqlite_classes": ["MyMCP"],
-			"tag": "v1"
-		}
+	"compatibility_flags": [
+		"nodejs_compat"
 	],
 	"durable_objects": {
 		"bindings": [
 			{
-				"class_name": "MyMCP",
-				"name": "MCP_OBJECT"
+				"class_name": "AdsPlatformMCP",
+				"name": "ADS_PLATFORM_MCP"
 			}
 		]
+	},
+	"migrations": [
+		{
+			"tag": "v1",
+			"new_sqlite_classes": [
+				"AdsPlatformMCP"
+			]
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "meta_ads_mcp",
+			"database_id": "406aa584-b51b-43f2-996e-1366946d8e9c"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "OAUTH_STATE",
+			"id": "0f513368636148ce87ac70c15f83ee50"
+		}
+	],
+	"vars": {
+		"META_API_VERSION": "v23.0"
 	},
 	"observability": {
 		"enabled": true
